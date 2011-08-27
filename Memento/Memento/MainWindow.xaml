@@ -1,0 +1,79 @@
+﻿<Window x:Class="Memento.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:tn="clr-namespace:WPFTaskbarNotifier;assembly=WPFTaskbarNotifier"
+        Title="Memento" Height="275" MinHeight="275" MaxHeight="275" Width="250" MinWidth="250" MaxWidth="250" Icon="Icon/locker.ico">
+    <Grid Background="Black">
+        <tn:NotifyIcon x:Name="NotifyIcon" Text="Memento" Visibility="Hidden" Icon="Icon/locker.ico" MouseDoubleClick="NotifyIcon_MouseDoubleClick"></tn:NotifyIcon>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontFamily="Comic Sans MS" Text="Task" Margin="5">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="Red" Offset="0"></GradientStop>
+                            <GradientStop Color="Yellow" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBox Name="TaskTextbox" Margin="5" Width="185" FontFamily="Comic Sans MS" KeyDown="TaskTextbox_KeyDown"></TextBox>
+            </StackPanel>
+            <DataGrid Name="TaskDataGrid" Background="Black" HorizontalScrollBarVisibility="Disabled" AutoGenerateColumns="False" Margin="5" Height="140" SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False" CanUserReorderColumns="False" CanUserSortColumns="True" CanUserResizeColumns="False" >
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridCell}">
+                        <EventSetter Event="PreviewMouseLeftButtonDown" Handler="DataGridCell_PreviewMouseLeftButtonDown"></EventSetter>
+                        <EventSetter Event="MouseEnter" Handler="DataGridCell_MouseEnter"></EventSetter>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Visibility="Hidden" Binding="{Binding TaskID}"></DataGridTextColumn>
+                    <DataGridTextColumn FontFamily="Comic Sans MS" Header="Description" IsReadOnly="True" Binding="{Binding Description}" Width="120" DisplayIndex="0"></DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="Notify" Binding="{Binding Notify}" DisplayIndex="1"></DataGridCheckBoxColumn>
+                    <DataGridCheckBoxColumn Header="Done" DisplayIndex="2"></DataGridCheckBoxColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Name="TurnOffNotificationCheckBox" FontFamily="Comic Sans MS" Content="Turn Off Notification" Margin="3" Click="TurnOffNotificationCheckBox_Click">
+                    <CheckBox.Foreground>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="Red" Offset="0"></GradientStop>
+                            <GradientStop Color="Yellow" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </CheckBox.Foreground>
+                </CheckBox>
+                <Button Name="BackgrounderButton" Content="Backgrounder" Background="Black" FontFamily="Comic Sans MS" Click="BackgrounderButton_Click">
+                    <Button.Foreground>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="Red" Offset="0"></GradientStop>
+                            <GradientStop Color="Yellow" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Button.Foreground>
+                </Button>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Text="Interval" Margin="5" FontFamily="Comic Sans MS">
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="Red" Offset="0"></GradientStop>
+                                <GradientStop Color="Yellow" Offset="1"></GradientStop>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <ComboBox Name="IntervalComboBox" Width="80" Height="20" FontFamily="Comic Sans MS" SelectionChanged="IntervalComboBox_SelectionChanged"></ComboBox>
+                </StackPanel>
+                <Button Name="AboutButton" Background="Black" Margin="5" Content="About" Click="AboutButton_Click" FontFamily="Comic Sans MS" HorizontalAlignment="Right" Grid.Column="1">
+                    <Button.Foreground>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Color="Red" Offset="0"></GradientStop>
+                            <GradientStop Color="Yellow" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Button.Foreground>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
