@@ -63,6 +63,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFTaskbarNotifier">
+      <HintPath>..\..\WPFTaskbarNotifier_src\WPFTaskbarNotifier_src\WPFTaskbarNotifierExample\WPFTaskbarNotifier\bin\Debug\WPFTaskbarNotifier.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -126,12 +129,6 @@
     <Resource Include="Icon\locker.ico" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\..\WPFTaskbarNotifier_src\WPFTaskbarNotifier_src\WPFTaskbarNotifierExample\WPFTaskbarNotifier\WPFTaskbarNotifier.csproj">
-      <Project>{C807F74B-9C21-4A9F-8A60-C7D7AF7BCBBA}</Project>
-      <Name>WPFTaskbarNotifier</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
