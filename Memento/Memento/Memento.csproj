@@ -125,9 +125,7 @@
     </Content>
     <Resource Include="Icon\locker.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\WPFTaskbarNotifier_src\WPFTaskbarNotifier_src\WPFTaskbarNotifierExample\WPFTaskbarNotifier\WPFTaskbarNotifier.csproj">
       <Project>{C807F74B-9C21-4A9F-8A60-C7D7AF7BCBBA}</Project>
